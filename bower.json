@@ -1,0 +1,20 @@
+{
+  "name": "gallery",
+  "description": "React pratice!",
+  "main": "index.js",
+  "authors": [
+    "Fray <519746672@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ml4907498/gallery-by-react",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "font-awsome#^4.6.3"
+  }
+}
