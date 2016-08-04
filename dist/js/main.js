@@ -134,7 +134,7 @@ module.exports = React.createClass({displayName: "exports",
     getImgDatas: function(data) {
         var imgArr = data;
         imgArr.forEach(function(img) {
-            img.fileSrc = '/app/imgs/' + img.fileName;
+            img.fileSrc = './dist/imgs/' + img.fileName;
         });
         return imgArr;
     },
