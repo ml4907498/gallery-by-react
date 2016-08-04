@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     concat = require('gulp-concat'),
     browserify = require('gulp-browserify'),
+    minImage = require('gulp-imagemin'),
     port = process.env.port || 5000;
 
 gulp.task('browserify', function() {
@@ -31,6 +32,17 @@ gulp.task('html', function() {
         .pipe(connect.reload())
 });
 
+gulp.task('initDist', function(){
+    gulp.src('./app/imgs/*')
+        .pipe(minImage())
+        .pipe(gulp.dest('./dist/imgs'))
+    gulp.src('./app/css/*')
+        .pipe(gulp.dest('./dist/css'))
+    gulp.src('./bower_components/font-awesome/css/font-awesome.min.css')
+        .pipe(gulp.dest('./dist/css'))
+});
+
+
 
 gulp.task('watch', function() {
     gulp.watch('./dist/**/*.js', ['js']);
@@ -41,4 +53,4 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['browserify']);
 
-gulp.task('serve', ['browserify', 'connect', 'watch']);
+gulp.task('serve', ['initDist','browserify', 'connect', 'watch']);
